@@ -1,10 +1,24 @@
 import * as React from 'react';
 
 import Layout from '@/components/layout/Layout';
+import ArrowLink from '@/components/links/ArrowLink';
 import ButtonLink from '@/components/links/ButtonLink';
-import CustomLink from '@/components/links/CustomLink';
+import UnderlineLink from '@/components/links/UnderlineLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
+
+/**
+ * SVGR Support
+ * Caveat: No React Props Type.
+ *
+ * You can override the next-env if the type is important to you
+ * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
+ */
+import Vercel from '~/svg/Vercel.svg';
+
+// !STARTERCONF -> Select !STARTERCONF and CMD + SHIFT + F
+// Before you begin editing, follow all comments with `STARTERCONF`,
+// to customize the default configuration.
 
 export default function HomePage() {
   return (
@@ -13,17 +27,20 @@ export default function HomePage() {
       <Seo />
 
       <main>
-        <section className='bg-dark'>
-          <div className='flex flex-col items-center justify-center min-h-screen text-center text-white layout'>
-            <h1>Next.js + Tailwind CSS + TypeScript Starter</h1>
-            <p className='mt-2 text-sm text-gray-300'>
+        <section className='bg-white'>
+          <div className='layout flex min-h-screen flex-col items-center justify-center text-center'>
+            <Vercel className='text-5xl' />
+            <h1 className='mt-4'>
+              Next.js + Tailwind CSS + TypeScript Starter
+            </h1>
+            <p className='mt-2 text-sm text-gray-800'>
               A starter for Next.js, Tailwind CSS, and TypeScript with Absolute
               Import, Seo, Link component, pre-configured with Husky{' '}
             </p>
-            <p className='mt-2 text-sm text-gray-200'>
-              <CustomLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter'>
+            <p className='mt-2 text-sm text-gray-700'>
+              <ArrowLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter'>
                 See the repository
-              </CustomLink>
+              </ArrowLink>
             </p>
 
             <ButtonLink className='mt-6' href='/components' variant='light'>
@@ -43,11 +60,11 @@ export default function HomePage() {
               />
             </UnstyledLink>
 
-            <footer className='absolute text-gray-500 bottom-2'>
+            <footer className='absolute bottom-2 text-gray-700'>
               © {new Date().getFullYear()} By{' '}
-              <CustomLink href='https://theodorusclarence.com?ref=tsnextstarter'>
+              <UnderlineLink href='https://theodorusclarence.com?ref=tsnextstarter'>
                 Theodorus Clarence
-              </CustomLink>
+              </UnderlineLink>
             </footer>
           </div>
         </section>
@@ -55,12 +72,3 @@ export default function HomePage() {
     </Layout>
   );
 }
-
-/**
- * Default info that you should change:
- * components/Seo.tsx
- * next-sitemap.js
- * public/favicon
- *
- * Please refer to the README.md
- */
